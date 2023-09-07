@@ -40,3 +40,4 @@ After tests have run generated report will be available in target/cucumber-repor
 Config file consists of following entries:
  - base.url: base URL for the API under test
  - users.csv.file: location of users csv file in rescourses folder. During tests the actual fine read will be appended by test id. If config contains `users.csv` then the actual file read by tests will be `usersID-1.csv` if the ID for the test case is `1`
+ - used.user.id: ID of user that has been deleted. Used in tests for non existant user scenarios
