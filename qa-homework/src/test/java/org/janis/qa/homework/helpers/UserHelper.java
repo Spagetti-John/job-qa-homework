@@ -5,7 +5,6 @@ import org.janis.qa.homework.constants.FieldNames;
 import org.janis.qa.homework.model.response.UserResponse;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.janis.qa.homework.helpers.TestCaseContext.USERS_CLIENT;

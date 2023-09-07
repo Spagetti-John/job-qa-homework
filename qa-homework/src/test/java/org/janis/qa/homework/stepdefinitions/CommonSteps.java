@@ -2,12 +2,9 @@ package org.janis.qa.homework.stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.apache.http.HttpStatus;
 import org.janis.qa.homework.constants.FieldNames;
 import org.janis.qa.homework.helpers.TestCaseContext;
 import org.janis.qa.homework.model.response.ErrorResponse;
-import org.janis.qa.homework.model.response.UserResponse;
 
 import java.util.Map;
 

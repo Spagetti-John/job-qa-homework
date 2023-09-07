@@ -1,10 +1,8 @@
 package org.janis.qa.homework.helpers;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.text.CaseUtils;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public class ObjectHelper {
     private static final String SET = "set";

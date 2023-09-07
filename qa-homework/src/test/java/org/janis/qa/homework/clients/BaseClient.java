@@ -7,7 +7,6 @@ import org.janis.qa.homework.constants.PropertyNames;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 

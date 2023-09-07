@@ -4,7 +4,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.http.HttpStatus;
 import org.janis.qa.homework.config.Config;
-import org.janis.qa.homework.constants.FieldNames;
 import org.janis.qa.homework.helpers.TestCaseContext;
 import org.janis.qa.homework.model.response.UserResponse;
 
