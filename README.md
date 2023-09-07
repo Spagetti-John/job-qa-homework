@@ -31,6 +31,6 @@ Tests can be run with the following command after navigating to qa_homework dire
 
 Where `{accessToken}` is replaced with the access token for the API
 
-Optional `-Denv={env}` flag can be added to the command to specify which config (.properties) file should be used for tests. `{env}` should be replaced with the name (without the extention) of the config file.
+Optional `-Denv={env}` flag can be added to the command to specify which config (.properties) file should be used for tests. `{env}` should be replaced with the name (without the extention) of the config file. The default value is "prod".
 
 After tests have run generated report will be available in target/cucumber-reports/CucumberReport.html file. This file can be opened with any modern web browser
