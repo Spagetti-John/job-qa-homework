@@ -37,6 +37,18 @@ public class TestCaseContext {
         return get().getCreatedUsers();
     }
 
+    public static UserResponse getFirstCreatedTestUser() {
+        return getCreatedTestUsers().get(0);
+    }
+
+    public static void updateFirstCreatedTestUser(UserResponse userResponse) {
+        get().getCreatedUsers().set(0, userResponse);
+    }
+
+    public static void removeFirstCreatedTestUser() {
+        get().getCreatedUsers().remove(0);
+    }
+
     public static void addCreatedTestUser(UserResponse userResponse) {
         get().getCreatedUsers().add(userResponse);
     }

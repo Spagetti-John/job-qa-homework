@@ -4,6 +4,9 @@ import org.apache.http.HttpStatus;
 import org.janis.qa.homework.constants.FieldNames;
 import org.janis.qa.homework.model.response.UserResponse;
 
+import java.util.List;
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.janis.qa.homework.helpers.TestCaseContext.USERS_CLIENT;
 import static org.janis.qa.homework.helpers.csv.UserCsvHelper.getRandomUsersFromCsv;
@@ -24,5 +27,12 @@ public class UserHelper {
 
             TestCaseContext.addCreatedTestUser(createdUser);
         });
+    }
+
+    public static List<UserResponse> getUsersListFromLastResponse() {
+        return TestCaseContext.getLastTestResponse().
+                statusCode(HttpStatus.SC_OK).
+                extract().
+                    jsonPath().getList(".", UserResponse.class);
     }
 }

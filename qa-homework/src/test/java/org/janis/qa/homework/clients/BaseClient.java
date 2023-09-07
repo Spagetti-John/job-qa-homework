@@ -3,9 +3,11 @@ package org.janis.qa.homework.clients;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.janis.qa.homework.constants.PropertyNames;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 
@@ -22,7 +24,7 @@ public class BaseClient {
                 log().all().
                 baseUri(this.baseURL).
                 auth().
-                    oauth2("7301cc99802ee91cbb376e4dfec016b7c00ab319194c53482f0daec97b3ffe11");
+                    oauth2(System.getProperty(PropertyNames.TOKEN));
     }
 
     protected ValidatableResponse get(String uri) {
@@ -46,6 +48,17 @@ public class BaseClient {
                 body(payload).
             when().
                 post(uri).
+            then().
+                log().all();
+    }
+
+    protected ValidatableResponse putJson(Object payload, String uri) {
+        return
+            getRequestSpecification().
+                contentType(ContentType.JSON).
+                body(payload).
+            when().
+                put(uri).
             then().
                 log().all();
     }

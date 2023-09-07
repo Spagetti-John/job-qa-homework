@@ -12,6 +12,7 @@ public class UsersClient extends BaseClient {
     private final String CREATE_USER_URI = "public/v2/users";
     private final String GET_USERS_URI = "public/v2/users";
     private final String DELETE_USER_URI = "public/v2/users/{id}";
+    private final String UPDATE_USER_URI = "public/v2/users/%s";
 
     public UsersClient(String baseURL) {
         super(baseURL);
@@ -34,6 +35,10 @@ public class UsersClient extends BaseClient {
                 delete(DELETE_USER_URI, id).
             then().
                 log().all();
+    }
+
+    public ValidatableResponse updateUser(int id, UserPayload userPayload) {
+        return super.putJson(userPayload, String.format(UPDATE_USER_URI, id));
     }
 
 }

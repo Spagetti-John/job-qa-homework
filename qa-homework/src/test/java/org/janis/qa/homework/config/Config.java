@@ -9,6 +9,7 @@ import java.util.Properties;
 public class Config {
     private static final String BASE_URL = "base.url";
     private static final String USERS_CSV_FILE = "users.csv.file";
+    private static final String USED_USER_ID = "used.user.id";
 
     private static Config INSTANCE;
 
@@ -49,5 +50,9 @@ public class Config {
 
     public String getUsersCsvFile() {
         return properties.getProperty(USERS_CSV_FILE);
+    }
+
+    public int getUsedUserId() {
+        return Integer.parseInt(properties.getProperty(USED_USER_ID));
     }
 }

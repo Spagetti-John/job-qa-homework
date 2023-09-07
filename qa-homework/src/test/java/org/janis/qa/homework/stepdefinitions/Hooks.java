@@ -13,6 +13,9 @@ public class Hooks {
     @Before
     public void before() {
         TestCaseContext.init();
+
+        //In case some users have been left in a bad state
+        cleanUp();
     }
 
     @After

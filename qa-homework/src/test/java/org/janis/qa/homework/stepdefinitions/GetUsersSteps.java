@@ -11,17 +11,7 @@ import static org.janis.qa.homework.helpers.TestCaseContext.USERS_CLIENT;
 
 public class GetUsersSteps {
     @When("User requests user list")
-    public void userRequestsUserList() {
+    public static void userRequestsUserList() {
         TestCaseContext.setLastTestResponse(USERS_CLIENT.getUsers());
-    }
-
-    @Then("User receives user list containing created users")
-    public void userReceivesUserListContainingCreatedUsers() {
-        var returnedUsers = TestCaseContext.getLastTestResponse().
-                statusCode(HttpStatus.SC_OK).
-                    extract().
-                        jsonPath().getList(".", UserResponse.class);
-
-        assertThat(returnedUsers).containsAll(TestCaseContext.getCreatedTestUsers());
     }
 }

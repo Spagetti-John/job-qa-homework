@@ -2,6 +2,7 @@ package org.janis.qa.homework.model.csv;
 
 import com.opencsv.bean.CsvBindByName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.janis.qa.homework.constants.CsvColumnNames;
@@ -11,6 +12,7 @@ import org.janis.qa.homework.model.response.UserResponse;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserCsv {
     @CsvBindByName(column = CsvColumnNames.NAME)
     private String name;
@@ -22,10 +24,20 @@ public class UserCsv {
     private String status;
 
     public UserPayload convertToPayload() {
-        return new UserPayload(this.name, this.gender, this.email, this.status);
+        return UserPayload.builder().
+                name(this.name).
+                gender(this.gender).
+                email(this.email).
+                status(this.status).build();
     }
 
     public UserResponse convertToResponse() {
-        return new UserResponse(0, this.name, this.email, this.gender, this.status);
+        return UserResponse.builder().
+                id(0).
+                status(this.status).
+                email(this.email).
+                gender(this.gender).
+                name(this.name).
+                build();
     }
 }
