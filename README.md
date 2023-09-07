@@ -2,7 +2,7 @@
 
 ## Project
 
-This repository contains E2E tests for API described in [here}(https://gorest.co.in/).
+This repository contains E2E tests for API described in [here](https://gorest.co.in/).
 
 Project code is structured into directories
  - clients: Contains classes related to making REST calls to API under test.
@@ -34,3 +34,9 @@ Where `{accessToken}` is replaced with the access token for the API
 Optional `-Denv={env}` flag can be added to the command to specify which config (.properties) file should be used for tests. `{env}` should be replaced with the name (without the extention) of the config file. The default value is "prod".
 
 After tests have run generated report will be available in target/cucumber-reports/CucumberReport.html file. This file can be opened with any modern web browser.
+
+## Config(properties) file
+
+Config file consists of following entries:
+ - base.url: base URL for the API under test
+ - users.csv.file: location of users csv file in rescourses folder. During tests the actual fine read will be appended by test id. If config contains `users.csv` then the actual file read by tests will be `usersID-1.csv` if the ID for the test case is `1`

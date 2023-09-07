@@ -19,17 +19,19 @@ public class TestCaseContext {
     public List<UserResponse> createdUsers;
 
     public ValidatableResponse lastResponse;
+    public String testCaseID;
 
-    private TestCaseContext() {
+    private TestCaseContext(String testCaseID) {
         createdUsers = new ArrayList<>();
+        this.testCaseID = testCaseID;
     }
 
     public static TestCaseContext get() {
         return CONTEXT.get();
     }
 
-    public static void init() {
-        CONTEXT.set(new TestCaseContext());
+    public static void init(String testCaseID) {
+        CONTEXT.set(new TestCaseContext(testCaseID));
         USERS_CLIENT = new UsersClient(CONFIG.getBaseUrl());
     }
 
@@ -59,5 +61,9 @@ public class TestCaseContext {
 
     public static ValidatableResponse getLastTestResponse() {
         return get().getLastResponse();
+    }
+
+    public static String getTestTestCaseID() {
+        return get().getTestCaseID();
     }
 }

@@ -5,10 +5,11 @@ import org.janis.qa.homework.model.csv.UserCsv;
 
 import java.util.List;
 
+import static org.janis.qa.homework.helpers.FileHelper.getFileNameForForTest;
 import static org.janis.qa.homework.helpers.csv.CsvHelper.getRandomRowsFromCsv;
 
 public class UserCsvHelper {
     public static List<UserCsv> getRandomUsersFromCsv(int count) {
-        return getRandomRowsFromCsv(Config.getInstance().getUsersCsvFile(), count, UserCsv.class);
+        return getRandomRowsFromCsv(getFileNameForForTest(Config.getInstance().getUsersCsvFile()), count, UserCsv.class);
     }
 }

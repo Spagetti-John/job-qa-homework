@@ -29,8 +29,8 @@ public class CsvHelper {
             var path = Paths.get(ClassLoader.getSystemResource(fileName).toURI());
 
             return new CsvToBeanBuilder<T>(Files.newBufferedReader(path)).withType(clazz).build().parse();
-        } catch (URISyntaxException | IOException e) {
-            throw new RuntimeException(e);
+        } catch (URISyntaxException | NullPointerException | IOException e) {
+            throw new RuntimeException("Could not load file: " + fileName, e);
         }
 
     }
